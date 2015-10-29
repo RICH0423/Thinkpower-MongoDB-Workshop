@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg %n</Pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+       <File>/Volumes/Apple_SD/blog/log/blog.log</File>
+       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>/Volumes/Apple_SD/blog/log/blog.log.%d{yyyy-MM-dd}</fileNamePattern>
+
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>         
+       </rollingPolicy>
+
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg %n</Pattern>
+        </encoder>
+        
+		<append>true</append>
+		<prudent>false</prudent>
+    </appender>
+    
+
+    <logger name="blogLogger" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="fileAppender" />
+        <appender-ref ref="consoleAppender" />
+    </logger>
+    
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="consoleAppender" />
+    </root>
+</configuration>
