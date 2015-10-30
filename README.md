@@ -1,5 +1,6 @@
 ## Thinkpower-MongoDB-Workshop
 =======================
+####[Slide Downlodad](http://www.slideshare.net/ssuser50b038/monogo-db-inaction)
 
 ######MongoDB related website:######
 * [MongoDB](http://www.mongodb.org/)
